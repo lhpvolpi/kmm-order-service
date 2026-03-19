@@ -1,4 +1,3 @@
-using Kmm.AspNetCore.FeatureFlag.Providers.EFCore.Data;
 using Kmm.OrderService.Application.Common.Entities;
 using Kmm.OrderService.Domain.Common.Entities;
 using Kmm.OrderService.Domain.Entities;
@@ -45,39 +44,6 @@ public sealed class ApplicationDbContextMigrator
     public ApplicationDbContextMigrator(
         ILogger<ApplicationDbContextMigrator> logger,
         ApplicationDbContext context)
-    {
-        _logger = logger;
-        _context = context;
-    }
-
-    public async Task ApplyMigrationsAsync(CancellationToken cancellationToken = default)
-    {
-        try
-        {
-            if (!_context.Database.CanConnect())
-            {
-                return;
-            }
-
-            await _context.Database.MigrateAsync(cancellationToken);
-            _logger.LogInformation("Database migrations applied successfully.");
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "An error occurred while applying database migrations.");
-            throw;
-        }
-    }
-}
-
-public sealed class FeatureFlagsDbContextMigrator
-{
-    private readonly ILogger<FeatureFlagsDbContextMigrator> _logger;
-    private readonly FeatureFlagsDbContext _context;
-
-    public FeatureFlagsDbContextMigrator(
-        ILogger<FeatureFlagsDbContextMigrator> logger,
-        FeatureFlagsDbContext context)
     {
         _logger = logger;
         _context = context;

@@ -45,7 +45,6 @@ app.UseAuthorization();
 
 // endpoints
 app.MapAuthEndpoints();
-app.MapCheckoutEndpoints();
 app.MapProductEndpoints();
 app.MapOrderEndpoints();
 
