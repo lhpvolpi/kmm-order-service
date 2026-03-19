@@ -1,0 +1,26 @@
+services:
+  postgres:
+    container_name: postgres-db
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=Admin@123
+      - POSTGRES_DB=kmm-order-service-db
+    ports:
+      - "5432:5432"
+    networks:
+      - kmm-order-service-network
+    volumes:
+      - kmm-order-service-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "admin", "-d", "kmm-order-service-db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  kmm-order-service-network:
+
+volumes:
+  kmm-order-service-postgres-data:

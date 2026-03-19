@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.24" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.4" />
+		<PackageReference Include="Microsoft.OpenApi" Version="2.4.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Kmm.OrderService.Application\Kmm.OrderService.Application.csproj" />
+		<ProjectReference Include="..\Kmm.OrderService.Infrastructure\Kmm.OrderService.Infrastructure.csproj" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,9 @@
+global using System.Reflection;
+global using Ardalis.Specification;
+global using AutoMapper;
+global using FluentValidation;
+global using FluentValidation.Results;
+global using MediatR;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
